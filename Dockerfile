@@ -22,9 +22,9 @@ RUN echo "1\n2" | ./configure && make && make install && make clean
 #    && apt -y autoremove
 
 WORKDIR /
-RUN mkdir -p /work/vpnserver
-COPY vpn_server.config /work/vpnserver/vpn_server.config
-RUN ln -sf /work/vpnserver/vpn_server.config /usr/vpnserver/vpn_server.config
+RUN mkdir -p /work
+COPY vpn_server.config /work/vpn_server.config
+RUN ln -sf /work/vpn_server.config /usr/vpnserver/vpn_server.config
 RUN rm -rf /usr/local/src/softether
 
 COPY vpnserver /etc/init.d/vpnserver
